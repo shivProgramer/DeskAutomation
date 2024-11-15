@@ -8,6 +8,8 @@ router.post("/register", adminUserController.registerUser);
 // Login route
 router.post("/login", adminUserController.loginUser);
 
-router.get("/", adminUserController.getAllUsers); 
+router.get("/", adminUserController.getAllUsers);
+
+
 
 module.exports = router;

@@ -44,20 +44,20 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const sequelize = require("./db"); 
 const adminUserRoutes = require("./routes/adminUserRoutes"); 
-
+const projectCostRoutes = require('./routes/project_cost');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 
-// Use adminUserRoutes for all routes starting with /api/admin-users
+//adminUserRoutes ----
 app.use("/api/admin-users", adminUserRoutes);
+// project_const -----
+app.use("/api", projectCostRoutes);
 
 // Define a simple test route
 app.get("/tester", (req, res) => {
   res.send("Hello World!");
 });
-
-
 sequelize.sync().then(() => {
   app.listen(port, () => {
     console.log(`Server listening on port ${port}`);
